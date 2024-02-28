@@ -1,6 +1,6 @@
 <?php 
-if ( isset($_GET["id"]) ) {   // check it receive the id or not
-	$id = $_GET["id"];
+if ( isset($_GET["s_id"]) ) {   // check it receive the id or not
+	$s_id = $_GET["s_id"];
 
 	$servername = "localhost";
 	$username = "root";
@@ -10,7 +10,7 @@ if ( isset($_GET["id"]) ) {   // check it receive the id or not
 	// create connection
 	$connection = new mysqli($servername, $username, $password, $database);
 
-	$sql = "DELETE FROM supplier WHERE id=$id";
+	$sql = "DELETE FROM supplier WHERE id=$s_id";
 	$connection->query($sql);
 
 }

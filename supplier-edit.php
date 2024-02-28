@@ -25,10 +25,10 @@ if ( $_SERVER['REQUEST_METHOD'] == 'GET'){    // why GET used not POST ?
 		header("location: /inventory/supplier.php");    ///
 		exit; 
 	}
-	$id = $_GET["s_id"];
+	$s_id = $_GET["s_id"];
 
 	// read the row of the selected client from database table
-	$sql = "SELECT * FROM supplier WHERE id=$s_id";   ///
+	$sql = "SELECT * FROM supplier WHERE s_id=$s_id";   ///
 	$result = $connection->query($sql);
 	$row = $result->fetch_assoc();   ///
 

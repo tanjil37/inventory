@@ -9,6 +9,10 @@
 </head>
 
 <body>
+    <header>
+        <?php include 'navbar.php'; ?>
+    </header>
+
     <div class="container my-5">
         <h2>Supplier List</h2>
         <a href="/inventory/supplier-create.php" role="button" class="btn btn-primary">New Supplier</a>

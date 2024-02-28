@@ -9,6 +9,10 @@
 </head>
 
 <body>
+    <header>
+        <?php include 'navbar.php'; ?>
+    </header>
+
     <div class="container my-5">
         <h2>list of Product</h2>
         <a href="/inventory/create.php" role="button" class="btn btn-primary">new product</a>
