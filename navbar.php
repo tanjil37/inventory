@@ -27,7 +27,7 @@
                     <a class="nav-link" href="supplier.php">Supplier</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Services</a>
+                    <a class="nav-link" href="orderItem.php">Ordered Items</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contact</a>

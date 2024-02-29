@@ -14,22 +14,23 @@
     </header>
 
     <div class="container my-5">
-        <h2>Order</h2>
-        <a href="/inventory/order-create.php" role="button" class="btn btn-primary">new order</a>
+        <h2>Ordered Item List</h2>
+        <a href="/inventory/orderItem-create.php" role="button" class="btn btn-primary">New Supplier</a>
         <br>
         <table class="table">
             <thead>
                 <tr>
-                    <th>Product ID</th>
-                    <th>Product Name</th>
-                    <th>Total Item</th>
-                    <th>customer</th>
+                    <th>Order ID</th>
+                    <th>Ordered Product</th>
+                    <th>Total Items</th>
+                    <th>Customer Name</th>
                     <th>Order Date</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
+                
 // Database credentials
 $servername = "localhost";
 $username = "root";
@@ -44,7 +45,7 @@ if ($connection->connect_error) {
     die("Connection failed: " . $connection->connect_error);
 }
 // read all row from database table
-$sql="SELECT *FROM order";  //
+$sql="SELECT *FROM orderitem";  //
 $result = $connection->query($sql);
 
 if (!$result){
@@ -55,14 +56,14 @@ if (!$result){
 while($row = $result->fetch_assoc()){
 	echo "
 	<tr>
-	 <td>$row[o_id]</td>    
-	 <td>$row[o_name]</td>
-	 <td>$row[t_item]</td>
-	 <td>$row[customer]</td>
+	 <td>$row[order_id]</td>    
+	 <td>$row[order_product]</td>
+	 <td>$row[total_items]</td>
+	 <td>$row[customer_name]</td>
 	 <td>$row[order_date]</td>
 	 <td>
-		<a class='btn btn-primary btn-sm' href='/inventory/order-edit.php?id=$row[o_id]' >Edit</a>
-		<a class='btn btn-danger btn-sm' href='/inventory/order-delete.php?id=$row[o_id]' >Delete</a>
+		<a class='btn btn-primary btn-sm' href='/inventory/orderItem-edit.php?id=$row[order_id]' >Edit</a>
+		<a class='btn btn-danger btn-sm' href='/inventory/orderItem-delete.php?id=$row[order_id]' >Delete</a>
 	 </td>
     </tr>
 	";
