@@ -15,7 +15,7 @@
 
     <div class="container my-5">
         <h2>Purchase List</h2>
-        <a href="/inventory/purchase_create.php" role="button" class="btn btn-primary">Add Purchase</a>
+        <a href="/inventory/purchase_create.php" role="button" class="btn btn-primary">Add New Purchase</a>
         <br>
         <table class="table">
             <thead>

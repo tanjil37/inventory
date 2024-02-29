@@ -15,7 +15,7 @@
 
     <div class="container my-5">
         <h2>Supplier List</h2>
-        <a href="/inventory/supplier-create.php" role="button" class="btn btn-primary">New Supplier</a>
+        <a href="/inventory/supplier-create.php" role="button" class="btn btn-primary">Add New Supplier</a>
         <br>
         <table class="table">
             <thead>

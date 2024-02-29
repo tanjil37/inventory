@@ -11,10 +11,8 @@ $connection = new mysqli($servername, $username, $password, $database);
 
 
 $id = "";
-$category = "";
-$name = "";   ///
-$productionCost = "";
-$sellingPrice = "";
+$product = "";
+$quantity = "";   ///
 $supplier = "";
 
 $errorMessage = "";
@@ -23,45 +21,41 @@ $successMessage = "";
 if ( $_SERVER['REQUEST_METHOD'] == 'GET'){    // why GET used not POST ?
 	// Get Method: show the data of the client
 	if (!isset($_GET['id'])){
-		header("location: /inventory/index.php");    ///
+		header("location: /inventory/purchase.php");    ///
 		exit; 
 	}
 	$id = $_GET["id"];
 
 	// read the row of the selected client from database table
-	$sql = "SELECT * FROM product WHERE id=$id";   ///
+	$sql = "SELECT * FROM purchase WHERE id=$id";   ///
 	$result = $connection->query($sql);
 	$row = $result->fetch_assoc();   ///
 
 	if (!$row){
-		header("location: /inventory/index.php");
+		header("location: /inventory/purchase.php");
 		exit;
 	}
 	
     $id = $row["id"];   
-    $category = $row["category"];   
-	$name = $row["name"];   ///
-    $productionCost = $row["productionCost"];
-    $sellingPrice = $row["sellingPrice"];
+    $product = $row["product"];   
+	$quantity = $row["quantity"];   ///
     $supplier = $row["supplier"];
 }
 else{
 	// POST method: update the data of the client
 	$id = $_POST["id"];
-	$category = $_POST["category"];
-    $name = $_POST["name"];
-	$productionCost = $_POST["productionCost"];
-	$sellingPrice = $_POST["sellingPrice"];
+	$product = $_POST["product"];
+    $quantity = $_POST["quantity"];
 	$supplier = $_POST["supplier"];
 
 	do{
-        if (empty($id) || empty($category) || empty($name) || empty($productionCost) || empty($sellingPrice) || empty($supplier)){
+        if (empty($id) || empty($product) || empty($quantity) || empty($supplier)){
         $errorMessage = "All the fields are required";
 			break;
 	    } 
 
-        $sql = "UPDATE product " . 
-		    "SET id = '$id', category = '$category', name = '$name', productionCost = '$productionCost', sellingPrice = '$sellingPrice', supplier='$supplier' " .
+        $sql = "UPDATE purchase " . 
+		    "SET id = '$id', product = '$product', quantity = '$quantity', supplier='$supplier' " .
 		    "WHERE id=$id";
 
 		$result = $connection->query($sql);
@@ -71,9 +65,9 @@ else{
 		  break;
 		}
  
-		$successMessage = "Product updated correctly";
+		$successMessage = "Purchase item updated correctly";
 
-		header("location: /inventory/index.php");    ///
+		header("location: /inventory/purchase.php");    ///
 		exit; 
 
     } while(false);
@@ -113,39 +107,26 @@ else{
         <form method="post">
             <input type="hidden" name="id" value="<?php echo $id; ?>">
             <div class="row mb-3">
-                <label for="" class="col-sm-3 col-form-label">Product id</label>
+                <label for="" class="col-sm-3 col-form-label">Purchase id</label>
                 <div class="col-sm-6">
                     <input type="text" class="form-control" name="id" value="<?php echo $id; ?>">
                 </div>
             </div>
 
             <div class="row mb-3">
-                <label for="" class="col-sm-3 col-form-label">Category</label>
+                <label for="" class="col-sm-3 col-form-label">Product</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" name="category" value="<?php echo $category; ?>">
+                    <input type="text" class="form-control" name="product" value="<?php echo $product; ?>">
                 </div>
             </div>
             <div class="row mb-3">
-                <label for="" class="col-sm-3 col-form-label">Name</label>
+                <label for="" class="col-sm-3 col-form-label">quantity</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" name="name" value="<?php echo $name; ?>">
+                    <input type="text" class="form-control" name="quantity" value="<?php echo $quantity; ?>">
                 </div>
             </div>
             <div class="row mb-3">
-                <label for="" class="col-sm-3 col-form-label">Production Cost</label>
-                <div class="col-sm-6">
-                    <input type="text" class="form-control" name="productionCost"
-                        value="<?php echo $productionCost; ?>">
-                </div>
-            </div>
-            <div class="row mb-3">
-                <label for="" class="col-sm-3 col-form-label">Selling Price</label>
-                <div class="col-sm-6">
-                    <input type="text" class="form-control" name="sellingPrice" value="<?php echo $sellingPrice; ?>">
-                </div>
-            </div>
-            <div class="row mb-3">
-                <label for="" class="col-sm-3 col-form-label">Supplier</label>
+                <label for="" class="col-sm-3 col-form-label">supplier</label>
                 <div class="col-sm-6">
                     <input type="text" class="form-control" name="supplier" value="<?php echo $supplier; ?>">
                 </div>
@@ -171,7 +152,7 @@ else{
                     <button class="btn btn-primary" type="submit">submit</button>
                 </div>
                 <div class="col-sm-3 d-grid">
-                    <a class="btn btn-outline-primary" href="/inventory/index.php" role="button">cancel</a>
+                    <a class="btn btn-outline-primary" href="/inventory/purchase.php" role="button">cancel</a>
                 </div>
             </div>
         </form>

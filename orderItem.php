@@ -15,7 +15,7 @@
 
     <div class="container my-5">
         <h2>Ordered Item List</h2>
-        <a href="/inventory/order-create.php" role="button" class="btn btn-primary">New Order Item</a>
+        <a href="/inventory/order-create.php" role="button" class="btn btn-primary">Add New Order Item</a>
         <br>
         <table class="table">
             <thead>
