@@ -21,13 +21,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.php">Home</a>
+                    <a class="nav-link" href="index.php">Product List</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="supplier.php">Supplier</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="orderItem.php">Ordered Items</a>
+                    <a class="nav-link" href="orderitem.php">Ordered Items</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contact</a>

@@ -15,14 +15,13 @@
 
     <div class="container my-5">
         <h2>Ordered Item List</h2>
-        <a href="/inventory/orderItem-create.php" role="button" class="btn btn-primary">New Supplier</a>
+        <a href="/inventory/order-create.php" role="button" class="btn btn-primary">New Order Item</a>
         <br>
         <table class="table">
             <thead>
                 <tr>
                     <th>Order ID</th>
                     <th>Ordered Product</th>
-                    <th>Total Items</th>
                     <th>Customer Name</th>
                     <th>Order Date</th>
                     <th>Action</th>
@@ -58,12 +57,11 @@ while($row = $result->fetch_assoc()){
 	<tr>
 	 <td>$row[order_id]</td>    
 	 <td>$row[order_product]</td>
-	 <td>$row[total_items]</td>
 	 <td>$row[customer_name]</td>
 	 <td>$row[order_date]</td>
 	 <td>
-		<a class='btn btn-primary btn-sm' href='/inventory/orderItem-edit.php?id=$row[order_id]' >Edit</a>
-		<a class='btn btn-danger btn-sm' href='/inventory/orderItem-delete.php?id=$row[order_id]' >Delete</a>
+		<a class='btn btn-primary btn-sm' href='/inventory/orderEdit.php?id=$row[order_id]' >Edit</a>
+		<a class='btn btn-danger btn-sm' href='/inventory/orderDelete.php?id=$row[order_id]' >Delete</a>
 	 </td>
     </tr>
 	";
