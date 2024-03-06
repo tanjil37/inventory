@@ -32,6 +32,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="purchase.php">Purchased Items</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="customer.php">Customer</a>
+                </li>
+
             </ul>
         </div>
     </nav>
