@@ -167,7 +167,7 @@ else{
 			?>
 
             <div class="row mb-3">
-                <div class="offset-sm-3 d-grid">
+                <div class="col-sm-3 d-grid">
                     <button class="btn btn-primary" type="submit">submit</button>
                 </div>
                 <div class="col-sm-3 d-grid">

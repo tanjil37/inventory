@@ -1,21 +1,29 @@
-<?php 
-if ( isset($_GET["s_id"]) ) {   // check it receive the id or not
-	$s_id = $_GET["s_id"];
+<?php
+if (isset($_GET["id"])) {
+    $s_id = $_GET["id"];
 
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$database = "inventory";
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $database = "inventory";
 
-	// create connection
-	$connection = new mysqli($servername, $username, $password, $database);
+    $connection = new mysqli($servername, $username, $password, $database);
 
-	$sql = "DELETE FROM supplier WHERE id=$s_id";
-	$connection->query($sql);
+    if ($connection->connect_error) {
+        die("Connection failed: " . $connection->connect_error);
+    }
 
+    $sql = "DELETE FROM supplier WHERE s_id=$s_id";
+
+    if ($connection->query($sql) === TRUE) {
+        echo "Supplier deleted successfully";
+    } else {
+        echo "Error deleting supplier: " . $connection->error;
+    }
+
+    $connection->close();
 }
 
-header("location: /inventory/supplier.php");   
+header("Location: /inventory/supplier.php");
 exit;
-
 ?>

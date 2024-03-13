@@ -67,7 +67,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST'){      // POST - data transmit
 
 <body>
     <div class="container my-5">
-        <h2>Add New Supplier</h2>
+        <h2>Add New Order</h2>
 
         <?php
 		 if (!empty($errorMessage)){
@@ -116,7 +116,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST'){      // POST - data transmit
 			?>
 
                 <div class="row mb-3">
-                    <div class="offset-sm-3 d-grid">
+                    <div class="col-sm-3 d-grid">
                         <button class="btn btn-primary" type="submit">submit</button>
                     </div>
                     <div class="col-sm-3 d-grid">

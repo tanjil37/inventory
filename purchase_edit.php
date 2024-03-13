@@ -91,7 +91,7 @@ else{
 
 <body>
     <div class="container my-5">
-        <h2>New Client</h2>
+        <h2>Edit Purchased Item</h2>
 
         <?php  
 		 if (!empty($errorMessage)){
@@ -148,7 +148,7 @@ else{
 			?>
 
             <div class="row mb-3">
-                <div class="offset-sm-3 d-grid">
+                <div class="col-sm-3 d-grid">
                     <button class="btn btn-primary" type="submit">submit</button>
                 </div>
                 <div class="col-sm-3 d-grid">
