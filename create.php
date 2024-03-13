@@ -15,6 +15,7 @@ $name = "";
 $productionCost = "";
 $sellingPrice = "";
 $supplier = "";
+$quantity = "";
 
 $errorMessage = "";
 $successMessage = "";
@@ -26,16 +27,17 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST'){      // POST - data transmit
 	$productionCost = $_POST["productionCost"];
 	$sellingPrice = $_POST["sellingPrice"];
 	$supplier = $_POST["supplier"];
+	$quantity = $_POST["quantity"];
 
 	do{
-       if (empty($id) || empty($category) || empty($name) || empty($productionCost) || empty($sellingPrice) || empty($supplier)){
+       if (empty($id) || empty($category) || empty($name) || empty($productionCost) || empty($sellingPrice) || empty($supplier) || empty($quantity)){
 		  $errorMessage = "All the fields are required";
 		  break;
 	   }
 
 	   // add new product to database
-       $sql = "INSERT INTO product (id, category, name, productionCost, sellingPrice, supplier)" .
-              "VALUES ('$id', '$category', '$name', '$productionCost', '$sellingPrice', '$supplier')";
+       $sql = "INSERT INTO product (id, category, name, productionCost, sellingPrice, supplier, quantity)" .
+              "VALUES ('$id', '$category', '$name', '$productionCost', '$sellingPrice', '$supplier', '$quantity')";
        $result = $connection->query($sql);
 
 	   if (!$result){
@@ -49,6 +51,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST'){      // POST - data transmit
 	   $productionCost = "";
 	   $sellingPrice = "";
 	   $supplier = "";
+	   $quantity = "";
 
 	   $successMessage = "Product added correctly";
 
@@ -123,6 +126,12 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST'){      // POST - data transmit
                 <label for="" class="col-sm-3 col-form-label">Supplier</label>
                 <div class="col-sm-6">
                     <input type="text" class="form-control" name="supplier" value="<?php echo $supplier; ?>">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="" class="col-sm-3 col-form-label">Quantity</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="quantity" value="<?php echo $quantity; ?>">
                 </div>
             </div>
 

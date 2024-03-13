@@ -6,7 +6,7 @@ if ( isset($_GET["id"]) ) {   // check it receive the id or not
 	$username = "root";
 	$password = "";
 	$database = "inventory";
-
+               
 	// create connection
 	$connection = new mysqli($servername, $username, $password, $database);
 

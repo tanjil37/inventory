@@ -22,10 +22,10 @@ if ( $_SERVER['REQUEST_METHOD'] == 'GET'){    // why GET used not POST ?
 		header("location: /inventory/orderitem.php");    ///
 		exit; 
 	}
-	$id = $_GET["id"];
+	$order_id = $_GET["id"];
 
 	// read the row of the selected client from database table
-	$sql = "SELECT * FROM orderitem WHERE id=$order_id";   ///
+	$sql = "SELECT * FROM orderitem WHERE order_id=$order_id";   ///
 	$result = $connection->query($sql);
 	$row = $result->fetch_assoc();   ///
 
