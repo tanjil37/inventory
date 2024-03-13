@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 06, 2024 at 04:15 PM
+-- Generation Time: Mar 13, 2024 at 09:30 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -86,7 +86,12 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `category`, `name`, `productionCost`, `sellingPrice`, `supplier`) VALUES
-(353, 'cold drinks', 'Tiger', 34, 55, 'Unilever BD LTD');
+(10, 'gfh', 'gf', 5, 2, 'fg'),
+(353, 'cold drinks', 'Tiger', 34, 55, 'Unilever BD LTD'),
+(552, 'hhdh', 'hhh', 20, 20, 'ddd'),
+(25000, '20', 'jhh', 5252, 2, 'jhhg'),
+(6757581, '', 'jhdfj', 0, 0, 'hjdfhhks'),
+(6757582, '', 'mango', 0, 0, 'fr');
 
 -- --------------------------------------------------------
 
@@ -100,6 +105,35 @@ CREATE TABLE `purchase` (
   `quantity` int(20) NOT NULL,
   `supplier` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `purchase`
+--
+
+INSERT INTO `purchase` (`id`, `product`, `quantity`, `supplier`) VALUES
+(20, 'fg', 1, 'ffg'),
+(6757580, 'jdg', 25, 'gfdj'),
+(6757581, 'jhdfj', 100, 'hjdfhhks'),
+(6757582, 'mango', 25, 'fr');
+
+--
+-- Triggers `purchase`
+--
+DELIMITER $$
+CREATE TRIGGER `update_product_after_purchase` AFTER INSERT ON `purchase` FOR EACH ROW BEGIN
+    INSERT INTO product (id, name, supplier)
+    VALUES (NEW.id, NEW.product, NEW.supplier);
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `update_product_name` AFTER INSERT ON `purchase` FOR EACH ROW BEGIN
+    UPDATE product
+    SET name = NEW.product
+    WHERE id = NEW.id;
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -180,13 +214,13 @@ ALTER TABLE `orderitem`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=675758;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6757583;
 
 --
 -- AUTO_INCREMENT for table `purchase`
 --
 ALTER TABLE `purchase`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6757576;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6757583;
 
 --
 -- AUTO_INCREMENT for table `supplier`

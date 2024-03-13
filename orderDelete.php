@@ -1,21 +1,30 @@
 <?php 
-if ( isset($_GET["id"]) ) {   // check it receive the id or not
-	$order_id = $_GET["id"];
+if ( isset($_GET["id"]) ) {
+    $order_id = $_GET["id"];
 
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$database = "inventory";
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $database = "inventory";
 
-	// create connection
-	$connection = new mysqli($servername, $username, $password, $database);
+    $connection = new mysqli($servername, $username, $password, $database);
 
-	$sql = "DELETE FROM orderitem WHERE id=$order_id";
-	$connection->query($sql);
+    if ($connection->connect_error) {
+        die("Connection failed: " . $connection->connect_error);
+    }
 
+    $sql = "DELETE FROM orderitem WHERE order_id=$order_id";
+    if ($connection->query($sql) === TRUE) {
+        echo "Record deleted successfully";
+    } else {
+        echo "Error deleting record: " . $connection->error;
+    }
+
+    $connection->close();
+} else {
+    echo "Error: ID is not provided.";
 }
 
 header("location: /inventory/orderitem.php");   
 exit;
-
 ?>

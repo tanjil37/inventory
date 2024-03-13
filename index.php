@@ -26,7 +26,6 @@
                     <th>Production Cost</th>
                     <th>Selling Price</th>
                     <th>Supplier</th>
-                    <th>Quantity</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -63,7 +62,6 @@ while($row = $result->fetch_assoc()){
 	 <td>$row[productionCost]</td>
 	 <td>$row[sellingPrice]</td>
 	 <td>$row[supplier]</td>
-     <td>$row[quantity]</td>    
 	 <td>
 		<a class='btn btn-primary btn-sm' href='/inventory/edit.php?id=$row[id]' >Edit</a>
 		<a class='btn btn-danger btn-sm' href='/inventory/delete.php?id=$row[id]' >Delete</a>

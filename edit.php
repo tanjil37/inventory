@@ -16,7 +16,6 @@ $name = "";   ///
 $productionCost = "";
 $sellingPrice = "";
 $supplier = "";
-$quantity = "";
 
 $errorMessage = "";
 $successMessage = "";
@@ -45,7 +44,6 @@ if ( $_SERVER['REQUEST_METHOD'] == 'GET'){    // why GET used not POST ?
     $productionCost = $row["productionCost"];
     $sellingPrice = $row["sellingPrice"];
     $supplier = $row["supplier"];
-	$quantity = $_POST["quantity"];
 }
 else{
 	// POST method: update the data of the client
@@ -55,16 +53,15 @@ else{
 	$productionCost = $_POST["productionCost"];
 	$sellingPrice = $_POST["sellingPrice"];
 	$supplier = $_POST["supplier"];
-	$quantity = $_POST["quantity"];
 
 	do{
-        if (empty($id) || empty($category) || empty($name) || empty($productionCost) || empty($sellingPrice) || empty($supplier) || empty($quantity)){
+        if (empty($id) || empty($category) || empty($name) || empty($productionCost) || empty($sellingPrice) || empty($supplier)){
         $errorMessage = "All the fields are required";
 			break;
 	    } 
 
         $sql = "UPDATE product " . 
-		    "SET id = '$id', category = '$category', name = '$name', productionCost = '$productionCost', sellingPrice = '$sellingPrice', supplier='$supplier', quantity='$quantity' " .
+		    "SET id = '$id', category = '$category', name = '$name', productionCost = '$productionCost', sellingPrice = '$sellingPrice', supplier='$supplier' " .
 		    "WHERE id=$id";
 
 		$result = $connection->query($sql);
@@ -151,12 +148,6 @@ else{
                 <label for="" class="col-sm-3 col-form-label">Supplier</label>
                 <div class="col-sm-6">
                     <input type="text" class="form-control" name="supplier" value="<?php echo $supplier; ?>">
-                </div>
-            </div>
-            <div class="row mb-3">
-                <label for="" class="col-sm-3 col-form-label">Quantity</label>
-                <div class="col-sm-6">
-                    <input type="text" class="form-control" name="quantity" value="<?php echo $quantity; ?>">
                 </div>
             </div>
 
