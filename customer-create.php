@@ -85,7 +85,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST'){      // POST - data transmit
 
         <form method="post">
             <div class="row mb-3">
-                <label for="" class="col-sm-3 col-form-label">Supplier ID</label>
+                <label for="" class="col-sm-3 col-form-label">Customer ID</label>
                 <div class="col-sm-6">
                     <input type="text" class="form-control" name="id" value="<?php echo $id; ?>">
                 </div>
