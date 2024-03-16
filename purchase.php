@@ -22,7 +22,7 @@
                 <tr>
                     <th>Purchase ID</th>
                     <th>Product Name</th>
-                    <th>Quantity</th>
+                    <th>Quantity (Kg)</th>
                     <th>Supplier</th>
                     <th>Action</th>
                 </tr>

@@ -14,8 +14,12 @@
     </header>
 
     <div class="container my-5">
-        <h2>list of Product</h2>
-        <a href="/inventory/create.php" role="button" class="btn btn-primary">Add New Product</a>
+        <h2>List of Availabe Product in Inventory</h2>
+        <li>Updated Unit Cost & Unit Selling Price</li>
+        <li>New Purchased item will be shown here</li>
+
+        <!-- 
+        <a href="/inventory/create.php" role="button" class="btn btn-primary">Add New Product</a>   -->
         <br>
         <table class="table">
             <thead>
@@ -23,8 +27,8 @@
                     <th>Product ID</th>
                     <th>Category</th>
                     <th>Product Name</th>
-                    <th>Production Cost</th>
-                    <th>Selling Price</th>
+                    <th>Production Cost (Tk)</th>
+                    <th>Selling Price (Tk)</th>
                     <th>Supplier</th>
                     <th>Action</th>
                 </tr>
